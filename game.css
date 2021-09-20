@@ -1,9 +1,52 @@
+
 body {
     font-family: "Arial", sans-serif;
-}
+    margin: 0;
+    padding: 0;
+    --text-color: #eee;
+    --bkg-color: #121212;
+  }
+  body.light-theme {
+    
+    --text-color: #222;
+    --bkg-color: #fff;
+    
+  }
+  
 section {
     text-align: center;
 }
+header  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 30px;
+}
+
+/*Text animation*/
+.welcome-text{
+    color: #121212;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: monospace;
+    letter-spacing: 7px;
+    cursor: pointer
+
+  }
+.welcome-text span{
+    transition: .5s linear
+  }
+
+.welcome-text:hover span{
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff, 
+                 0 0 40px #fff;
+  }
+
+
+/*Game CSS*/
+
 .game--container {
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -15,8 +58,63 @@ section {
     width: 100px;
     height: 100px;
     box-shadow: 0 0 0 1px #333333;
-    border: 1px solid #333333;
+    border: 3px solid #333333;
     cursor: pointer;
 line-height: 100px;
     font-size: 60px;
 }
+
+  /*Dark mode*/
+    
+  @media (prefers-color-scheme: light) {
+    /* defaults to dark theme */
+    body {
+        --text-color: #222;
+        --bkg-color: #fff;
+    }
+    body.dark-theme {
+      
+      --text-color: #eee;
+      --bkg-color: #121212;
+    }
+    
+  }
+  
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  body {
+    background: var(--bkg-color);
+  }
+  
+  h1, div,h2
+  {
+    color: var(--text-color);
+  }
+
+  /*Title CSS*/
+
+  .game--title {
+    text-align: center;
+    font-size: 4em;
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 1;
+    text-decoration: none;
+    color: #fff;
+    font-family: Iceland;
+    animation: neon2 1.5s ease-in-out infinite alternate;
+  }
+
+  
+  @keyframes neon2 {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228dff,
+        0 0 70px #228dff, 0 0 80px #228dff, 0 0 100px #228dff, 0 0 150px #228dff;
+    }
+    to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228dff,
+        0 0 35px #228dff, 0 0 40px #228dff, 0 0 50px #228dff, 0 0 75px #228dff;
+    }
+  }
